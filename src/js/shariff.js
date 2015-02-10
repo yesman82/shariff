@@ -51,6 +51,8 @@ _Shariff.prototype = {
         // URL to backend that requests social counts. null means "disabled"
         backendUrl : null,
 
+        facebookAction: 'share',
+
         // Link to the "about" page
         infoUrl: 'http://ct.de/-2467514',
 
@@ -59,7 +61,6 @@ _Shariff.prototype = {
 
         // horizontal/vertical
         orientation: 'horizontal',
-
 
         // a string to suffix current URL
         referrerTrack: null,
