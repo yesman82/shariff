@@ -1,5 +1,3 @@
-# THIS IS A FORK FOR THE i12 GmbH
-
 # Shariff – Give Social Media Buttons Some Privacy
 
 Shariff enables website users to share their favorite content without compromising their privacy. [Demo](http://heiseonline.github.io/shariff/)
