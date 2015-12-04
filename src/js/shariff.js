@@ -16,22 +16,10 @@ var Shariff = function(element, options) {
 
     // available services. /!\ Browserify can't require dynamically by now.
     var availableServices = [
-        require('./services/addthis'),
-        require('./services/diaspora'),
         require('./services/facebook'),
-        require('./services/flattr'),
         require('./services/googleplus'),
         require('./services/info'),
-        require('./services/linkedin'),
-        require('./services/mail'),
-        require('./services/pinterest'),
-        require('./services/reddit'),
-        require('./services/stumbleupon'),
-        require('./services/twitter'),
-        require('./services/whatsapp'),
-        require('./services/xing'),
-        require('./services/tumblr'),
-        require('./services/threema')
+        require('./services/twitter')
     ];
 
     // filter available services to those that are enabled and initialize them
@@ -48,11 +36,6 @@ var Shariff = function(element, options) {
     });
 
     this._addButtonList();
-
-    if (this.options.backendUrl !== null) {
-        this.getShares().then( $.proxy( this._updateCounts, this ) );
-    }
-
 };
 
 Shariff.prototype = {
@@ -62,9 +45,6 @@ Shariff.prototype = {
     defaults: {
         theme      : 'color',
 
-        // URL to backend that requests social counts. null means "disabled"
-        backendUrl : null,
-
         // Link to the "about" page
         infoUrl: 'http://ct.de/-2467514',
 
@@ -73,20 +53,6 @@ Shariff.prototype = {
 
         // fallback language for not fully localized services
         langFallback: 'en',
-
-        mailUrl: function() {
-            var shareUrl = url.parse(this.getURL(), true);
-            shareUrl.query.view = 'mail';
-            delete shareUrl.search;
-            return url.format(shareUrl);
-        },
-
-        // if
-        mailSubject: function() {
-            return this.getMeta('DC.title') || this.getTitle();
-        },
-
-        mailBody: function() { return '<' + this.getURL() + '>'; },
 
         // Media (e.g. image) URL to be shared
         mediaUrl: null,
@@ -99,7 +65,7 @@ Shariff.prototype = {
         referrerTrack: null,
 
         // services to be enabled in the following order
-        services   : ['twitter', 'facebook', 'googleplus', 'info'],
+        services   : ['facebook', 'twitter', 'googleplus', 'info'],
 
         title: function() {
             return $('head title').text();
@@ -169,14 +135,6 @@ Shariff.prototype = {
 
     getReferrerTrack: function() {
         return this.options.referrerTrack || '';
-    },
-
-    // returns shareCounts of document
-    getShares: function() {
-        var baseUrl = url.parse(this.options.backendUrl, true);
-        baseUrl.query.url = this.getURL();
-        delete baseUrl.search;
-        return $.getJSON(url.format(baseUrl));
     },
 
     // add value of shares for each service

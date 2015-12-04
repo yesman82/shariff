@@ -4,7 +4,6 @@ demo/build
 demo/css
 demo/fonts
 *.map
-#build/*
 
 bower_components
 
@@ -39,3 +38,4 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+/build

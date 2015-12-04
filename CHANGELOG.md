@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.22.0 2015-12-04
+
+* Git repo has been forked for modificaation for the i12 GmbH
+* Removed all services but facebook, twitter, google plus and info
+* not using font-awesome but the internal font 'i12font'
+
 ## v1.21.0 2015-11-06
 
 * Added Threema service. (medienverbinder)
