@@ -1,6 +1,6 @@
 {
   "name": "shariff",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "homepage": "http://ct.de/-2467514",
   "authors": [
     "Ines Pauer <ipa@heise.de>",
@@ -13,9 +13,10 @@
     "build/shariff.min.css",
     "build/shariff.min.js"
   ],
-  "description": "Shariff enables website users to share their favorite content without compromising their privacy.",
+  "description": "i12 GmbH Version of Shariff - Shariff enables website users to share their favorite content without compromising their privacy.",
   "keywords": [
     "heise",
+    "i12",
     "social buttons",
     "shariff"
   ],
@@ -30,8 +31,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "jquery": "~2.1.1"
-  }
+  ]
 }
